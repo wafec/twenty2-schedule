@@ -5,7 +5,7 @@ using Xunit;
 public class WorkSchedulingApiTest
 {
     [Fact]
-    public void someTest()
+    public async void someTest()
     {
         Assert.True( false, "" );
     }

@@ -1,6 +1,6 @@
 ﻿namespace Twenty2.Schedule.Api.Entities;
 
-public class Work
+public class Work : IEntity
 {
     public long Id { get; set; }
 

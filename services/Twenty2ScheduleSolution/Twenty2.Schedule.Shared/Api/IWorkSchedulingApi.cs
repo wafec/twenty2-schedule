@@ -4,10 +4,10 @@ using Twenty2.Schedule.Shared.Dto;
 
 public interface IWorkSchedulingApi
 {
-    IEnumerable<WorkRequestOption> GetWorkRequestOptions();
+    IAsyncEnumerable<WorkRequestOption> GetWorkRequestOptions();
 
-    IEnumerable<WorkerAvailabilityDto> GetWorkerAvailabilityList( long workerId );
+    IAsyncEnumerable<WorkerAvailabilityDto> GetWorkerAvailabilityList( long workerId );
 
-    UserAppointmentDto SubmitWorkRequest( WorkRequestDto workRequest );
+    Task<UserAppointmentDto> SubmitWorkRequest( WorkRequestDto workRequest );
 }
 
