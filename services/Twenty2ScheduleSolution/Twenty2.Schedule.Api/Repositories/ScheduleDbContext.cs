@@ -17,7 +17,8 @@ public class ScheduleDbContext : DbContext
 
     public DbSet<WorkRequest>? WorkRequests { get; set; }
 
-    public ScheduleDbContext()
+    public ScheduleDbContext( DbContextOptions<ScheduleDbContext> options )
+        : base( options )
     {
     }
 }

@@ -14,17 +14,20 @@ public class WorkSchedulingApi : IWorkSchedulingApi
         
     }
 
-    public async IAsyncEnumerable<WorkerAvailabilityDto> GetWorkerAvailabilityList( long workerId )
+    [HttpGet( "get-worker-availability-list" )]
+    public IAsyncEnumerable<WorkerAvailabilityDto> GetWorkerAvailabilityList( long workerId )
     {
         throw new NotImplementedException();
     }
 
-    public async IAsyncEnumerable<WorkRequestOption> GetWorkRequestOptions()
+    [HttpGet( "get-work-request-options" )]
+    public IAsyncEnumerable<WorkRequestOption> GetWorkRequestOptions()
     {
         throw new NotImplementedException();
     }
 
-    public async Task<UserAppointmentDto> SubmitWorkRequest( WorkRequestDto workRequest )
+    [HttpGet( "submit-work-request" )]
+    public Task<UserAppointmentDto> SubmitWorkRequest( WorkRequestDto workRequest )
     {
         throw new NotImplementedException();
     }

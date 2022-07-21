@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Twenty2.Schedule.Api.Entities;
 
-public abstract class SkeletalRepository<TEntity> : IRepository<long, TEntity> where TEntity : IEntity
+public abstract class SkeletalRepository<TEntity> : IRepository<long, TEntity> where TEntity : class, IEntity
 {
     public DbContext DbContext { get; private set; }
 
@@ -14,8 +14,11 @@ public abstract class SkeletalRepository<TEntity> : IRepository<long, TEntity> w
 
     public Task<bool> Delete( long id )
     {
-        TEntity entity = Activator.CreateInstance<TEntity>();
-        entity.Id = id;
+        var entity = DbContext.Find<TEntity>( id );
+        if ( entity == null )
+        {
+            return Task.FromResult( false );
+        }
         var result = DbContext.Remove( entity );
         return Task.FromResult( result.State == EntityState.Deleted );
     }
