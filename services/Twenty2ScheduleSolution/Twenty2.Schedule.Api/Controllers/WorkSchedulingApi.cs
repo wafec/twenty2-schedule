@@ -15,13 +15,13 @@ public class WorkSchedulingApi : IWorkSchedulingApi
     }
 
     [HttpGet( "get-worker-availability-list" )]
-    public IAsyncEnumerable<WorkerAvailabilityDto> GetWorkerAvailabilityList( long workerId )
+    public Task<IEnumerable<WorkerAvailabilityDto>> GetWorkerAvailabilityList( long workerId )
     {
         throw new NotImplementedException();
     }
 
     [HttpGet( "get-work-request-options" )]
-    public IAsyncEnumerable<WorkRequestOption> GetWorkRequestOptions()
+    public Task<IEnumerable<WorkRequestOption>> GetWorkRequestOptions()
     {
         throw new NotImplementedException();
     }
