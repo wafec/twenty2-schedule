@@ -8,6 +8,8 @@ public class Work : IEntity
 
     public TimeSpan CalculatedCompletion { get; set; }
 
+    public long WorkerId { get; set; }
+
     public Worker? Worker { get; set; }
 }
 

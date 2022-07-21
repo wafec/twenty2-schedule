@@ -4,6 +4,8 @@ public class WorkRequest : IEntity
 {
     public long Id { get; set; }
 
+    public long UserId { get; set; }
+
     public User? User { get; set; }
 
     public List<Work>? WantedWorks { get; set; }
