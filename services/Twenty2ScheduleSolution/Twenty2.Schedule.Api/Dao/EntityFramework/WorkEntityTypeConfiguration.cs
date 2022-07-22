@@ -12,8 +12,16 @@ public class WorkEntityTypeConfiguration : IEntityTypeConfiguration<Work>
     {
         builder.ToTable( WORK_TABLE );
         builder.HasKey( x => x.Id );
-        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
-        builder.Property( x => x.AssuredCompletion ).IsRequired();
+        builder.Property( x => x.Id )
+            .ValueGeneratedOnAdd()
+            .HasColumnName( "id" );
+        builder.Property( x => x.AssuredCompletion )
+            .HasColumnName( "assured_completion" )
+            .IsRequired();
+        builder.Property( x => x.CalculatedCompletion )
+            .HasColumnName( "calculated_completion" );
+        builder.Property( x => x.WorkerId )
+            .HasColumnName( "worker_id" );
         builder.HasOne( x => x.Worker ).WithMany().HasForeignKey( x => x.WorkerId );
     }
 }

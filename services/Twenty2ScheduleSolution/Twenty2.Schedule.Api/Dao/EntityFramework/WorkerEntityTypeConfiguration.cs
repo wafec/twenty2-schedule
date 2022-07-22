@@ -12,7 +12,8 @@ public class WorkerEntityTypeConfiguration : IEntityTypeConfiguration<Worker>
     {
         builder.ToTable( WORKER_TABLE );
         builder.HasKey( x => x.Id );
-        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd().HasColumnName( "id" );
+        builder.Property( x => x.WorkerId ).IsRequired().HasColumnName( "worker_id" );
     }
 }
 

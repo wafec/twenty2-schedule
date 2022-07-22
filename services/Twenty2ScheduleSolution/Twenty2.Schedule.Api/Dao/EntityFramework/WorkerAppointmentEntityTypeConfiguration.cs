@@ -14,9 +14,20 @@ public class WorkerAppointmentEntityTypeConfiguration :
     {
         builder.ToTable( WORKER_APPOINTMENT_TABLE );
         builder.HasKey( x => x.Id );
-        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
-        builder.Property( x => x.StartDate ).IsRequired();
-        builder.Property( x => x.EndDate ).IsRequired();
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd().HasColumnName( "id" );
+        builder.Property( x => x.StartDate )
+            .IsRequired()
+            .HasColumnName( "start_date" );
+        builder.Property( x => x.EndDate )
+            .IsRequired()
+            .HasColumnName( "end_date" );
+        builder.Property( x => x.WorkerId )
+            .HasColumnName( "worker_id" );
+        builder.Property( x => x.UserId )
+            .HasColumnName( "user_id" );
+        builder.Property( x => x.Concluded )
+            .HasColumnName( "concluded" );
+        builder.HasOne( x => x.User ).WithMany().HasForeignKey( x => x.UserId );
         builder.HasOne( x => x.Worker ).WithMany().HasForeignKey( x => x.WorkerId );
         builder.HasMany( x => x.Works ).WithMany( x => x.WorkerAppointments )
             .UsingEntity<WorkerAppointmentWork>( j => j
@@ -30,6 +41,8 @@ public class WorkerAppointmentEntityTypeConfiguration :
                 j =>
                 {
                     j.ToTable( WORKER_APPOINTMENT_WORKS_TABLE );
+                    j.Property( x => x.WorkId ).HasColumnName( "work_id" );
+                    j.Property( x => x.WorkerAppointmentId ).HasColumnName( "worker_appointment_id" );
                 });
     }
 }

@@ -13,9 +13,10 @@ public class WorkerAvailabilityEntityTypeConfiguration : IEntityTypeConfiguratio
     {
         builder.ToTable( WORKER_AVAILABILITY_TABLE );
         builder.HasKey( x => x.Id );
-        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
-        builder.Property( x => x.StartDate ).IsRequired();
-        builder.Property( x => x.EndDate ).IsRequired();
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd().HasColumnName( "id" );
+        builder.Property( x => x.StartDate ).IsRequired().HasColumnName( "start_date" );
+        builder.Property( x => x.EndDate ).IsRequired().HasColumnName( "end_date" );
+        builder.Property( x => x.WorkerId ).HasColumnName( "worker_id" );
         builder.HasMany( wa => wa.Works ).WithMany( w => w.WorkerAvailabilities )
             .UsingEntity<WorkerAvailabilityWork>( j => j
                     .HasOne( x => x.Work )
@@ -28,6 +29,8 @@ public class WorkerAvailabilityEntityTypeConfiguration : IEntityTypeConfiguratio
                 j =>
                 {
                     j.ToTable( WORKER_AVAILABILITY_WORKS_TABLE );
+                    j.Property( x => x.WorkId ).HasColumnName( "work_id" );
+                    j.Property( x => x.WorkerAvailabilityId ).HasColumnName( "work_availability_id" );
                 } );
     }
 }

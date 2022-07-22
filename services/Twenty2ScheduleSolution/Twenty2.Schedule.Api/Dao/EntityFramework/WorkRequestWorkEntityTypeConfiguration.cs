@@ -13,8 +13,11 @@ public class WorkRequestEntityTypeConfiguration : IEntityTypeConfiguration<WorkR
     {
         builder.ToTable( WORK_REQUEST_TABLE );
         builder.HasKey( x => x.Id );
-        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
-        builder.Property( x => x.StartDate ).IsRequired();
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd().HasColumnName( "id" );
+        builder.Property( x => x.StartDate ).IsRequired().HasColumnName( "start_date" );
+        builder.Property( x => x.Accepted ).HasColumnName( "accepted" ).HasDefaultValue( false );
+        builder.Property( x => x.Confirmed ).HasColumnName( "confirmed" ).HasDefaultValue( false );
+        builder.Property( x => x.UserId ).HasColumnName( "user_id" );
         builder.HasMany( x => x.Works ).WithMany( x => x.WorkRequests )
             .UsingEntity<WorkRequestWork>( j => j
                     .HasOne( x => x.Work )
@@ -27,6 +30,8 @@ public class WorkRequestEntityTypeConfiguration : IEntityTypeConfiguration<WorkR
                 j =>
                 {
                     j.ToTable( WORK_REQUEST_WORK_TABLE );
+                    j.Property( x => x.WorkId ).HasColumnName( "work_id" );
+                    j.Property( x => x.WorkRequestId ).HasColumnName( "work_request_id" );
                 } );
                 
     }

@@ -12,6 +12,11 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
     {
         builder.ToTable( USER_TABLE );
         builder.HasKey( x => x.Id );
-        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
+        builder.Property( x => x.Id )
+            .ValueGeneratedOnAdd()
+            .HasColumnName( "id" );
+        builder.Property( x => x.UserId )
+            .HasColumnName( "user_id" )
+            .IsRequired();
     }
 }
