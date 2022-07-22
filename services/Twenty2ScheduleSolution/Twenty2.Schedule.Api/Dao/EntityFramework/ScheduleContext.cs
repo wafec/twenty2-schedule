@@ -24,7 +24,7 @@ public class ScheduleContext : DbContext
 
     protected override void OnModelCreating( ModelBuilder modelBuilder )
     {
-        modelBuilder.ApplyConfigurationsFromAssembly( typeof( WorkEntityTypeConfiguration ).Assembly );
+        modelBuilder.ApplyConfigurationsFromAssembly( typeof( ScheduleContext ).Assembly );
     }
 }
 

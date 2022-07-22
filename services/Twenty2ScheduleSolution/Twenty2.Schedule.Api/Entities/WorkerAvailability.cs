@@ -12,5 +12,7 @@ public class WorkerAvailability : IEntity
 
     public DateTime EndDate { get; set; }
 
-    public List<Work>? AvailableWorks { get; set; }
+    public List<Work>? Works { get; set; }
+
+    public List<WorkerAvailabilityWork>? WorkerAvailabilityWorks { get; set; }
 }

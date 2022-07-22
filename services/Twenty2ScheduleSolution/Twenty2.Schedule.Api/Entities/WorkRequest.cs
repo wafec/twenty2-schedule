@@ -8,12 +8,14 @@ public class WorkRequest : IEntity
 
     public User? User { get; set; }
 
-    public List<Work>? WantedWorks { get; set; }
+    public List<Work>? Works { get; set; }
 
     public bool Accepted { get; set; }
 
     public bool Confirmed { get; set; }
 
     public DateTime StartDate { get; set; }
+
+    public List<WorkRequestWork>? WorkRequestWorks { get; set; }
 }
 

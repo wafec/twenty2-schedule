@@ -12,8 +12,16 @@ public class Work : IEntity
 
     public Worker? Worker { get; set; }
 
-    public ICollection<WorkerAppointment>? WorkerAppointments { get; set; }
+    public List<WorkerAppointment>? WorkerAppointments { get; set; }
 
     public List<WorkerAppointmentWork>? WorkerAppointmentWorks { get; set; }
+
+    public List<WorkerAvailability>? WorkerAvailabilities { get; set; }
+
+    public List<WorkerAvailabilityWork>? WorkerAvailabilityWorks { get; set; }
+
+    public List<WorkRequest>? WorkRequests { get; set; }
+
+    public List<WorkRequestWork>? WorkRequestWorks { get; set; }
 }
 

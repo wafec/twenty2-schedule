@@ -6,7 +6,7 @@ public interface IWorkSchedulingApi
 {
     Task<IEnumerable<WorkRequestOption>> GetWorkRequestOptions();
 
-    Task<IEnumerable<WorkerAvailabilityDto>> GetWorkerAvailabilityList( 
+    Task<IEnumerable<WorkerAvailabilityDto>> GetWorkerAvailabilities( 
         long workerId, DateTime startDate, DateTime endDate );
 
     Task<UserAppointmentDto> SubmitWorkRequest( WorkRequestDto workRequest );
