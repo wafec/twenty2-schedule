@@ -1,6 +1,6 @@
-﻿namespace Twenty2.Schedule.Tests.Api.Controllers;
+﻿using Xunit;
 
-using Xunit;
+namespace Twenty2.Schedule.Tests.Api.Controllers;
 
 public class WorkSchedulingApiTest
 {

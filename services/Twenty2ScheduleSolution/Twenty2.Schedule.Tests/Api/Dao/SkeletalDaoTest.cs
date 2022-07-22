@@ -1,22 +1,23 @@
-﻿namespace Twenty2.Schedule.Tests.Api.Repositories;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Twenty2.Schedule.Api.Dao;
+using Twenty2.Schedule.Api.Dao.EntityFramework;
 using Twenty2.Schedule.Api.Entities;
-using Twenty2.Schedule.Api.Repositories;
 using Xunit;
 
-public class SkeletalRepositoryTest
-{
-    private ScheduleDbContext context;
-    private WorkRepository sut;
+namespace Twenty2.Schedule.Tests.Api.Repositories;
 
-    public SkeletalRepositoryTest()
+public class SkeletalDaoTest
+{
+    private ScheduleContext context;
+    private WorkDao sut;
+
+    public SkeletalDaoTest()
     {
-        var options = new DbContextOptionsBuilder<ScheduleDbContext>()
+        var options = new DbContextOptionsBuilder<ScheduleContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
-        context = new ScheduleDbContext( options );
-        sut = new WorkRepository( context );
+        context = new ScheduleContext( options );
+        sut = new WorkDao( context );
     }
 
     [Fact]

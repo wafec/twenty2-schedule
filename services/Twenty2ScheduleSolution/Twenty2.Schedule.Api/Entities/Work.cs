@@ -11,5 +11,9 @@ public class Work : IEntity
     public long WorkerId { get; set; }
 
     public Worker? Worker { get; set; }
+
+    public ICollection<WorkerAppointment>? WorkerAppointments { get; set; }
+
+    public List<WorkerAppointmentWork>? WorkerAppointmentWorks { get; set; }
 }
 

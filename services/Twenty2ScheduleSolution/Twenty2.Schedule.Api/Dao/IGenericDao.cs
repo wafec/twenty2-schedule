@@ -1,6 +1,6 @@
-﻿namespace Twenty2.Schedule.Api.Repositories;
+﻿namespace Twenty2.Schedule.Api.Dao;
 
-public interface IRepository<TKey, TEntity>
+public interface IGenericDao<TKey, TEntity>
 {
     Task<TEntity> Add( TEntity entity );
 

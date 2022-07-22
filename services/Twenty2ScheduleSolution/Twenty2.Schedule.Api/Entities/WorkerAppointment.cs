@@ -12,11 +12,13 @@ public class WorkerAppointment : IEntity
 
     public DateTime EndDate { get; set; }
 
-    public List<Work>? SelectedWorks { get; set; }
+    public List<Work>? Works { get; set; }
 
     public long UserId { get; set; }
 
     public User? User { get; set; }
 
     public bool Concluded { get; set; }
+
+    public List<WorkerAppointmentWork>? WorkerAppointmentWorks { get; set; }
 }

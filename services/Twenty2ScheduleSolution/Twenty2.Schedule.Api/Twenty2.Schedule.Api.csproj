@@ -19,10 +19,6 @@
     <None Remove="Microsoft.EntityFrameworkCore.Relational" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Twenty2.Schedule.Shared\Twenty2.Schedule.Shared.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

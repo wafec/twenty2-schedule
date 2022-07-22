@@ -1,14 +1,13 @@
-﻿namespace Twenty2.Schedule.Api.Repositories;
-
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Twenty2.Schedule.Api.Entities;
 
-public abstract class SkeletalRepository<TEntity> : IRepository<long, TEntity> where TEntity : class, IEntity
-{
-    public DbContext DbContext { get; private set; }
+namespace Twenty2.Schedule.Api.Dao;
 
-    public SkeletalRepository( DbContext dbContext )
+public abstract class SkeletalDao<TEntity> : IGenericDao<long, TEntity> where TEntity : class, IEntity
+{
+    protected DbContext DbContext { get; }
+
+    protected SkeletalDao( DbContext dbContext )
     {
         DbContext = dbContext;
     }
