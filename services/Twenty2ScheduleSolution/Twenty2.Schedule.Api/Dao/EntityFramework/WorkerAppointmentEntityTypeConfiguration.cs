@@ -13,6 +13,10 @@ public class WorkerAppointmentEntityTypeConfiguration :
     public void Configure( EntityTypeBuilder<WorkerAppointment> builder )
     {
         builder.ToTable( WORKER_APPOINTMENT_TABLE );
+        builder.HasKey( x => x.Id );
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
+        builder.Property( x => x.StartDate ).IsRequired();
+        builder.Property( x => x.EndDate ).IsRequired();
         builder.HasOne( x => x.Worker ).WithMany().HasForeignKey( x => x.WorkerId );
         builder.HasMany( x => x.Works ).WithMany( x => x.WorkerAppointments )
             .UsingEntity<WorkerAppointmentWork>( j => j

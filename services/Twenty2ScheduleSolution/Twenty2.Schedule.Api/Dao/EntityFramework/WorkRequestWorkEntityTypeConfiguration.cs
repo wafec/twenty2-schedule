@@ -12,6 +12,9 @@ public class WorkRequestEntityTypeConfiguration : IEntityTypeConfiguration<WorkR
     public void Configure( EntityTypeBuilder<WorkRequest> builder )
     {
         builder.ToTable( WORK_REQUEST_TABLE );
+        builder.HasKey( x => x.Id );
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
+        builder.Property( x => x.StartDate ).IsRequired();
         builder.HasMany( x => x.Works ).WithMany( x => x.WorkRequests )
             .UsingEntity<WorkRequestWork>( j => j
                     .HasOne( x => x.Work )

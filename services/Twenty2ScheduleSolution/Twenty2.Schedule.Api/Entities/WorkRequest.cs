@@ -14,7 +14,7 @@ public class WorkRequest : IEntity
 
     public bool Confirmed { get; set; }
 
-    public DateTime StartDate { get; set; }
+    public DateTime? StartDate { get; set; }
 
     public List<WorkRequestWork>? WorkRequestWorks { get; set; }
 }

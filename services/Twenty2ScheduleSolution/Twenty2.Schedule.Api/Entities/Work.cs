@@ -4,9 +4,9 @@ public class Work : IEntity
 {
     public long Id { get; set; }
 
-    public TimeSpan AssuredCompletion { get; set; }
+    public TimeSpan? AssuredCompletion { get; set; }
 
-    public TimeSpan CalculatedCompletion { get; set; }
+    public TimeSpan? CalculatedCompletion { get; set; }
 
     public long WorkerId { get; set; }
 

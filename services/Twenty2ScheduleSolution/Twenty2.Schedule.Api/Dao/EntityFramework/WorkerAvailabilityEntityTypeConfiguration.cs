@@ -12,6 +12,10 @@ public class WorkerAvailabilityEntityTypeConfiguration : IEntityTypeConfiguratio
     public void Configure( EntityTypeBuilder<WorkerAvailability> builder )
     {
         builder.ToTable( WORKER_AVAILABILITY_TABLE );
+        builder.HasKey( x => x.Id );
+        builder.Property( x => x.Id ).ValueGeneratedOnAdd();
+        builder.Property( x => x.StartDate ).IsRequired();
+        builder.Property( x => x.EndDate ).IsRequired();
         builder.HasMany( wa => wa.Works ).WithMany( w => w.WorkerAvailabilities )
             .UsingEntity<WorkerAvailabilityWork>( j => j
                     .HasOne( x => x.Work )
