@@ -7,7 +7,7 @@ using Twenty2.Schedule.Shared.Dto;
 namespace Twenty2.Schedule.Api.Controllers;
 
 [ApiController]
-[Route( "api/woØrk-scheduling" )]
+[Route( "api/work-scheduling" )]
 public class WorkSchedulingApi : IWorkSchedulingApi
 {
     private readonly IWorkerAvailabilityDao workerAvailabilityDao;
